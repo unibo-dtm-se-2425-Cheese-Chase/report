@@ -6,14 +6,6 @@ nav_order: 2
 
 # Concept
 
----
-title: Concept
-has_children: false
-nav_order: 2
----
-
-# Concept
-
 CheeseChase is a desktop application with a graphical user interface.  
 It offers interactive graphics and animations, making it easy and enjoyable to play.  
 The game works as a real-time system, where the main loop updates the game logic and visuals about 30 times per second, ensuring smooth and responsive gameplay.
