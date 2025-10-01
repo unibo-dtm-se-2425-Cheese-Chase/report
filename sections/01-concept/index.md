@@ -6,17 +6,25 @@ nav_order: 2
 
 # Concept
 
-Here you should explain:
-- The type of product developed with that project, for example (non-exhaustive):
-    - Application (with GUI, be it mobile, web, or desktop)
-    - Command-line application (CLI could be used by humans or scripts)
-    - Library
-    - Web-service(s)
-    - Data processing toolkit (= Library + CLI, or Jupyter Notebook)
+CheeseChase is a **desktop application with a graphical user interface (GUI)**.  
+It offers interactive graphics and animations, making it easy and enjoyable to play.  
+The game works as a **real-time system**, where the main loop updates the game logic and visuals about **30 times per second**, ensuring smooth and responsive gameplay.
 
-- Use case collection
-    - Where are the users?
-    - When and how frequently do they interact with the system?
-    - How do they interact with the system? Which devices are they using?
-    - Does the system need to store user's data? Which data? Where?
-    - Most likely, there will be multiple roles.
+From a use case perspective, the players are **casual gamers** who use a desktop or laptop computer.  
+They interact with the game continuously during each session, since it is a **fast-paced, arcade-style experience**.  
+The main way of interacting is through the **keyboard**:  
+- The **arrow keys** move Jerry (the mouse) up, down, left, or right through the maze.  
+- The **spacebar** lets the player pause or resume the game at any time.
+
+The game does **not store any permanent data**.  
+Information such as the current level, the score, and the number of lives is kept **only in memory** during gameplay.  
+Once the game ends or is restarted, all values are reset. No accounts or external storage are required.
+
+There are two main roles in the system:  
+- **Player** — controls Jerry and tries to win by collecting cheese and avoiding cats.  
+- **System** — runs the background processes: animating characters, checking collisions, updating the score, and enforcing the game rules.
+
+
+
+
+
