@@ -38,10 +38,11 @@ The goal is to help Jerry collect all the cheese pieces in the maze while avoidi
 
 - Regular cheese increases the score.  
 - Special cheese makes the cats vulnerable for a short time, allowing Jerry to chase them away and earn extra points.  
-- If a cat catches Jerry while it is not vulnerable, Jerry loses one life.  
-- The player starts with a limited number of lives, shown at the bottom of the screen.  
-- The game ends in victory if all cheese pieces are collected or all cats are chased away.  
-- The game ends in defeat if Jerry loses all lives.
+- If a cat catches Jerry while it is not vulnerable, Jerry loses one life.
+- The player starts with a total of five lives, which are displayed as small mouse icons at the bottom of the screen.
+- The game ends in defeat if Jerry loses all five lives.
+- As long as Jerry has at least one remaining life, the game continues through a progression of levels. When Jerry collects all the cheese pieces in the maze, the level increases and a new maze begins.
+
 
 ![Game Play](/pictures/Game_Play_.jpg)
 
@@ -54,7 +55,7 @@ The main game window shows:
 - The maze, where Jerry and the cats move.  
 - The score and level at the top of the screen.  
 - The remaining lives as small mouse icons at the bottom.  
-- Additional on-screen messages (e.g., “Ready”, “Pause”, “Game Over”, “Victory”) to guide the player.
+- Additional on-screen messages (e.g., “Ready”, “Pause”, “Game Over”) to guide the player.
 
 ![Display and user interface](/pictures/Display_and_userinterface_.jpg)
 
@@ -62,7 +63,7 @@ The main game window shows:
 
 ## Ending and restarting
 
-When the game ends, a message will appear showing either Victory or Game Over.  
+When the game ends, a Game Over message appears on the screen. The game only ends when Jerry loses all his lives, indicating that no more attempts are available. 
 To play again, simply restart the program by running:  python -m CheeseChase
 
 ![The end](/pictures/The_end_.jpg)
