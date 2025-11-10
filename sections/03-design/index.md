@@ -6,94 +6,104 @@ nav_order: 4
 
 # Design
 
-This chapter explains the strategies used to meet the requirements identified in the analysis. 
+This chapter describes the main design choices adopted to satisfy the system requirements identified in the analysis. The goal is to illustrate the structure and behaviour of the system independently of any specific implementation details, so that the same architecture could be applied even with different technologies.
 
-Ideally, the design should be the same, regardless of the technological choices made during the implementation phase.
+## Architecture
 
-> You can re-order the sections as you prefer, but all the sections must be present in the end
+The game adopts a layered, object-oriented architecture based on the Model–View–Controller (MVC) pattern. This choice cleanly separates responsibilities, simplifies reasoning about the system, and supports extensibility (for example, adding new levels or enemy types).
 
-## Architecture 
+- Model: Contains all core game logic, including Mouse, CatGroup, CheeseGroup, PowerCheese, node structures, collision rules, and scoring.
+- View: Manages all graphical rendering, including sprites, animations, UI elements, and visual feedback.
+- Controller: Interprets player inputs, manages events, updates the model accordingly, coordinates with the view, and handles level progression.
 
-- Which architectural style (e.g. layered, object-based, event-based, shared dataspace)? Why? Why not the others?
-- Provide details about the actual architecture (e.g. N-tier, hexagonal, etc.) you are going to adopt. Motivate your choice.
-- Provide a high-level overview of the architecture, possibly with a diagram
-- Describe the responsibilities of each architectural component
+A high-level overview of how input, controller logic, model state, and rendering interact is shown in the diagram below.
 
-> UML Components diagrams are welcome here
+![Component Diagram](../../pictures/ComponentDiagram.jpg)
 
-## Infrastructure (mostly applies to distributed systems)
+## Infrastructure
 
-- Are there **infrastructural components** that need to be introduced? Which and **how many** of each?
-    - e.g. **clients**, **servers**, **load balancers**, **caches**, **databases**, **message brokers**, **queues**, **workers**, **proxies**, **firewalls**, **CDNs**, etc.
-- How do components **distribute** over the network? **Where** are they located?
-    - e.g. do servers / brokers / databases / etc. sit on the same machine? on the same network? on the same datacenter? on the same continent?
-- How do components **find** each other?
-    - How to **name** components?
-    - e.g. **DNS**, **service discovery**, **load balancing**, etc.
-
-> UML deployment diagrams are welcome here
+Cheese-Chase runs entirely as a local desktop application, with no servers, databases, or background services.  
+All components run within a single local process on the user's machine.  
+There is no network communication, distributed storage, or remote coordination between components.
 
 ## Modelling
 
-### Domain driven design (DDD) modelling
+### Domain Driven Design (DDD) Modelling
 
-- Which are the bounded contexts of your domain? 
-- Which are domain concepts (entities, value objects, aggregates, etc.) for each context?
-- Are there repositories, services, or factories for each/any domain concept?
-- What are the relavant domain events in each context?
+The system is organised into three main bounded contexts:
 
-> Context map diagrams are welcome here
+- Gameplay: Mouse, CatGroup, CheeseGroup, PowerCheese.
+- Game State: score, lives, level progression, pause logic.
+- Rendering: sprites and visual components.
 
-### Object-oriented modelling
+Domain concepts include:
 
-- What are the main data types (e.g. classes) of the system?
-- What are the main attributes and methods of each data type?
-- How do data types relate to each other?
+- Entities: Mouse, Cat, Cheese, PowerCheese.
+- Aggregates: CatGroup, CheeseGroup.
+- Domain Services: LevelManager, EventsManager, ModeController.
 
-> UML class diagrams are welcome here
+### Object-Oriented Modelling
 
-### In case of a distributed system
+The main classes and their responsibilities include:
 
-- How do the domain concepts map to the architectural or infrastuctural components?
-    + i.e. which architectural/component is responsible for which domain concept?
-    + are there data types which are required onto multiple components? (e.g. messages being exchanged between components)
+- Mouse: movement, collision handling, cheese collection, life management.  
+- Cat: AI behaviour, movement, state transitions (chase, scatter, frightened, spawn).  
+- Node / NodeGroup: maze connectivity and navigation graph.  
+- Cheese / CheeseGroup: cheese positions and collection logic.  
+- GameController: coordination of the game loop.  
+- EventsManager: detection of collisions and input.  
+- LevelManager: level transitions and resets.  
+- Pause: pause state management.
 
-- What are the domain concepts or data types which represent the state of the distributed system?
-    + e.g. state of a video game on central server, while inputs/representations on clients
-    + e.g. where to store messages in an instant-messaging app? for how long?
+A class diagram summarising these relationships is shown below.
 
-- Are there domain concepts or data types which represent messages being exchanged between components?
-    + e.g. messages between clients and servers, messages between servers, messages between clients
+![Class Diagram](../../pictures/ClassDiagram.jpg)
+
 
 ## Interaction
 
-- How do components *communicate*? *When*? *What*?
+Components interact continuously through the game loop:
 
-- Which **interaction patterns** do they enact?
+1. The player presses a key.  
+2. The controller processes the input and updates the model (for example, Mouse direction).  
+3. The model updates all entities, checks collisions, and triggers events such as cheese collection or life loss.  
+4. The view renders the updated state.
 
-> UML sequence diagrams are welcome here
+This interaction flow is represented in the sequence diagram below.
+
+![Sequence Diagram](../../pictures/SequenceDiagram.jpg)
 
 ## Behaviour
 
-- How does **each** component *behave* individually (e.g., in *response* to *events* or messages)?
-    + Some components may be *stateful*, others *stateless*
+Several components in the system are stateful and update every frame:
 
-- Which components are in charge of updating the **state** of the system? *When*? *How*?
+- Mouse transitions between states such as ALIVE, EMPOWERED, and DEAD.  
+  The diagram below shows these state changes.
 
-> UML state diagrams or activity diagrams are welcome here
+  ![Mouse State Diagram](../../pictures/Mouse_StateDiagram.jpg)
 
-## Data-related aspects (in case persistent storage is needed)
+- GameController / ModeController transitions between READY, PLAYING, PAUSED, and GAME_OVER.  
+  The following diagram illustrates these high-level states.
 
-- Is there any data that needs to be stored?
-    - *What* data? *Where*? *Why*?
+  ![GameController State Diagram](../../pictures/GameController_StateDiagram.jpg)
 
-- How should **persistent data** be **stored**? Why?
-    - e.g., relations, documents, key-value, graph, etc.
+- Cats transition between SPAWN, SCATTER, CHASE, FRIGHTENED, and EATEN.  
+  This behaviour is shown in the diagram below.
 
-- Which components perform queries on the database?
-    - *When*? *Which* queries? *Why*?
-    - Concurrent read? Concurrent write? Why?
+  ![Cat State Diagram](../../pictures/Cat_StateDiagram.jpg)
 
-- Is there any data that needs to be shared between components?
-    - *Why*? *What* data?
+Components such as EventsManager remain mostly stateless, reacting deterministically to conditions detected every frame.
+
+## Data-related Aspects
+
+All game data is stored in memory while the game is running. This includes:
+
+- entity positions  
+- score and lives  
+- current level  
+- cheese state  
+- node graph  
+
+No persistent storage is required because the system does not maintain accounts, saved sessions, or long-term progression.  
+This simplifies the system and avoids the need for concurrency management or database design.
 
