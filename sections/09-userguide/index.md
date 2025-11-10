@@ -17,7 +17,7 @@ Once the package is installed, open a terminal and run: python -m CheeseChase
 This command launches the game’s main module and opens the game window.  
 No extra configuration or setup is required as the game starts immediately.
 
-![Starting the game](/pictures/Starting_the_game_.jpg)
+![Starting the game](../../pictures/Starting_the_game_.jpg)
 
 ---
 
@@ -28,7 +28,7 @@ The game is controlled entirely with the keyboard:
 - Arrow keys: Move Jerry (the mouse) up, down, left, or right through the maze.  
 - Spacebar: Pause or resume the game. When paused, a clear “Pause” message appears on the screen.
 
-![Game Pause](/pictures/Game_Pause_.jpg)
+![Game Pause](../../pictures/Game_Pause_.jpg)
 
 ---
 
@@ -44,7 +44,7 @@ The goal is to help Jerry collect all the cheese pieces in the maze while avoidi
 - As long as Jerry has at least one remaining life, the game continues through a progression of levels. When Jerry collects all the cheese pieces in the maze, the level increases and a new maze begins.
 
 
-![Game Play](/pictures/Game_Play_.jpg)
+![Game Play](../../pictures/Game_Play_.jpg)
 
 ---
 
@@ -57,7 +57,7 @@ The main game window shows:
 - The remaining lives as small mouse icons at the bottom.  
 - Additional on-screen messages (e.g., “Ready”, “Pause”, “Game Over”) to guide the player.
 
-![Display and user interface](/pictures/Display_and_userinterface_.jpg)
+![Display and user interface](../../pictures/Display_and_userinterface_.jpg)
 
 ---
 
@@ -66,4 +66,4 @@ The main game window shows:
 When the game ends, a Game Over message appears on the screen. The game only ends when Jerry loses all his lives, indicating that no more attempts are available. 
 To play again, simply restart the program by running:  python -m CheeseChase
 
-![The end](/pictures/The_end_.jpg)
+![The end](../../pictures/The_end_.jpg)
