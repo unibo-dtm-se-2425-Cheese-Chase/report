@@ -1,6 +1,6 @@
 # Cheese-Chase Project Work Report
 
-This [repository](https://github.com/unibo-dtm-se-2425-Cheese-Chase/report.git) contains the project report and documentation related to Avian Blasters (or Avian Blasters: The Avians Strike Back), a Python developed software, inspired by arcade games such as Space Invaders and Galaga, for a University Software Engineering project work.
+This [repository](https://github.com/unibo-dtm-se-2425-Cheese-Chase/report.git) contains the project report and documentation related to CheeseChase, a Python-developed software project inspired by classic maze-chase games such as Pac-Man, created as part of a University Software Engineering coursework assignment.
 
 - To access the project work documentation, click [here](https://unibo-dtm-se-2425-cheese-chase.github.io/report/).
 
