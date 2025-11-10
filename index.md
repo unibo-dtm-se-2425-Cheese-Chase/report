@@ -9,8 +9,8 @@ nav_order: 1
 
 ### Authors
 
-- Francesca Folli – https://github.com/frafo227295
-- Gaia Bellachioma – https://github.com/gaia-bellachioma
+- Francesca Folli – [frafo227295](https://github.com/frafo227295)
+- Gaia Bellachioma – [gaia-bellachioma](https://github.com/gaia-bellachioma)
 
 ## Abstract
 
