@@ -5,7 +5,6 @@ nav_order: 3
 ---
 
 # Requirements
-
 ## User Stories
 
 The main persona for this project is a casual gamer playing on a desktop or laptop computer for fun.  
