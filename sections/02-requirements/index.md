@@ -8,7 +8,7 @@ nav_order: 3
 ## User Stories
 
 The main persona for this project is a casual gamer playing on a desktop or laptop computer for fun.  
-Their primary goal is to control Jerry, collect cheese, avoid cats, and try to win the game.  
+Their primary goal is to control Jerry, collect cheese, avoid cats and try to level up in the game. 
 The system, on the other hand, must manage the background logic: cat behavior, collision detection, and game state updates.
 
 The following user stories summarize the expected interactions:
