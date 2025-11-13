@@ -17,7 +17,7 @@ Contributors can open issues to report bugs or propose new features, comment on 
 All project activity and collaboration happen directly on GitHub, so no external tools are required.
 
 For questions, you can also contact the maintainers:  
-francesca.folli2@studio.unibo.it, gaia.bellachioma@studio.unibo.it, asia.zanotti@studio.unibo.it
+francesca.folli2@studio.unibo.it, gaia.bellachioma@studio.unibo.it
 
 ---
 
