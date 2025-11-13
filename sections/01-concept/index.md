@@ -21,7 +21,7 @@ Information such as the current level, the score, and the number of lives is kep
 Once the game ends or is restarted, all values are reset. No accounts or external storage are required.
 
 There are two main roles in the system:  
-- Player: controls Jerry and tries to win by collecting cheese and avoiding cats.  
+- Player: controls Jerry and tries to level up by collecting cheese and avoiding cats.  
 - System: runs the background processes: animating characters, checking collisions, updating the score, and enforcing the game rules.
  
 
