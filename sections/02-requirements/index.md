@@ -43,9 +43,8 @@ Each requirement includes acceptance criteria to help validate the system.
 | **FR5** | The game must include four cats, including Tom, moving autonomously. | All cats are visible: they move on their own and follow AI behavior rules. |
 | **FR6** | Jerry must lose a life if touched by a non-vulnerable cat. | A life counter decreases and the game state updates accordingly. |
 | **FR7** | Jerry can chase away cats when they are vulnerable. | Cats disappear or return to their spawn point: points are awarded. |
-| **FR8** | The game must end in victory when all cheese is collected or all cats are chased away. | A “Victory” message or screen is displayed when either condition is met. |
-| **FR9** | The game must end in defeat if Jerry loses all lives. | A “Game Over” message or screen is displayed when no lives remain. |
-| **FR10** | The game must allow pausing and resuming via the spacebar. | All game entities stop moving: a pause message appears, and resume works correctly. |
+| **FR8** | The game must end in defeat if Jerry loses all lives. | A “Game Over” message or screen is displayed when no lives remain. |
+| **FR9** | The game must allow pausing and resuming via the spacebar. | All game entities stop moving: a pause message appears, and resume works correctly. |
 
 ---
 
@@ -78,4 +77,4 @@ Each requirement includes acceptance criteria to help validate the system.
 - **Cheese**: Collectable items: regular cheese increases score, while special cheese makes cats vulnerable.  
 - **Vulnerable state**: A temporary condition where cats can be chased away.  
 - **Lives**: The number of attempts Jerry has before the game ends.  
-- **Victory / Defeat**: The conditions under which the game ends successfully or unsuccessfully.  
+- **Defeat**: The condition under which the game ends unsuccessfully.  
