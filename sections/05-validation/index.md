@@ -19,7 +19,7 @@ A semi–Test-Driven Development methodology was followed: early unit tests guid
 A total of 168 automated tests were developed across the model, controller, and view layers. Each module had a dedicated test file, ensuring thorough and maintainable validation aligned with functional and non-functional requirements.
 
 - Model layer: validated Entity, Node, Cheese, Cat, Mouse, and Animator classes for movement, collision, goal seeking, and state transitions (FR1–FR7)  
-- Controller layer: tested EventsManager, LevelManager, GameController, and Pauser for input handling, pausing, scoring, and level progression (FR3–FR10)  
+- Controller layer: tested EventsManager, LevelManager, GameController, and Pauser for input handling, pausing, scoring, and level progression (FR1,FR3–FR9)  
 - View layer: confirmed rendering logic in GameView, including background updates and entity visibility (NFR1–NFR3)
 
 Mocks and patches were used to simulate dependencies, providing reproducible and isolated results without requiring a game window or real-time input.
@@ -33,8 +33,7 @@ Unit tests were written for all major classes to validate individual methods and
 
 Examples include:
 - Entity movement and speed adjustment (FR1, FR2)  
-- Pause timing and callback management (FR10)  
-- LevelManager score/life resets and level transitions (FR8, FR9)  
+- Pause timing and callback management (FR9)  
 - Mouse and Cat goal logic and collision reactions (FR4–FR7)
 
 All unit tests passed successfully, confirming stability of each module in isolation.
@@ -45,8 +44,8 @@ Integration tests validated communication between components and the correct flo
 
 Examples include:
 - Mouse, Cats, and Cheese: scoring, collisions, and frightened mode logic (FR3–FR7)  
-- GameController and EventsManager: input handling, pause/resume behaviour, and state management (FR8–FR10)  
-- LevelManager and GameController: seamless level resets and restarts (FR8, FR9)
+- GameController and EventsManager: input handling, pause/resume behaviour, and state management (FR1,FR6–FR9)  
+- LevelManager and GameController: level resets and restarts (FR8-FR9)
 
 Mocks were used to simulate timers, inputs, and game events.
 
@@ -57,8 +56,8 @@ Integration test success rate: 100%
 System testing validated CheeseChase as a fully functioning game. Full automation was limited due to Pygame’s graphical environment, but extended integration tests and manual sessions confirmed system-level behaviour.
 
 Tests confirmed:
-- Proper startup and level loading (FR8)  
-- Correct player movement, collisions, scoring, and transitions (FR1–FR10)  
+- Proper startup and maze loading (FR2)  
+- Correct player movement, collisions, scoring, and transitions (FR1–FR9)  
 - Consistent performance and responsiveness (NFR1–NFR3)
 
 All system tests were executed in a clean virtual environment to ensure repeatability.
@@ -77,7 +76,7 @@ The testing process included:
 - Playing several full games to observe movement, collisions, scoring, and general behaviour as described in the User Guide  
 
 Criteria assessed:
-- FR1–FR10: player control, collision handling, cheese collection, frightened mode, enemy behaviour, life loss, scoring, level transitions, game-over sequence, and pause/resume  
+- FR1–FR9: player control, collision handling, cheese collection, frightened mode, enemy behaviour, life loss, scoring, level transitions, game-over sequence, and pause/resume  
 - NFR1–NFR5: stable performance, responsive input, consistent graphics, modular design, and absence of data collection
 
 All manual tests produced the expected results.
